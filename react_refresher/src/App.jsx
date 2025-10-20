@@ -1,57 +1,31 @@
-// // React Refresher => Currently at: 00:46:30
+// React Refresher => Currently at: 01:02:00
 
-// import { useEffect, useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
-// import "./App.css";
-
-// // // Class Components
-// // class ClassComponents extends React.Component {
-// //   render( ) {
-// //     return <h2>Class Component</h2>
-// //   }
-// // }
-
-// const hasLiked = true;
-
-// const Card = ({ title }) => {
-//   const [count, setCount] = useState(0);
-
-//   const [hasLiked, setHasLiked] = useState(false);
-
-//   useEffect(() => {
-//     console.log(`${title} has been liked: ${hasLiked}`);
-//   }, [hasLiked]);
-
-//   return (
-//     <div className="card" onClick={() => setCount(count + 1)}>
-//       <h2>
-//         {title} <br /> {count || null}
-//       </h2>
-
-//       <button onClick={() => setHasLiked(!hasLiked)}>
-//         {hasLiked ? "❤️" : "🤍"}
-//       </button>
-//     </div>
-//   );
-// };
-
-// const App = () => {
-//   return (
-//     <div className="card-container">
-//       <Card title="Star Wars" rating={5} isCool={true} hasLiked={hasLiked} />
-//       <Card title="Avatar" />
-//       <Card title="The Lion King" />
-//     </div>
-//   );
-// };
-
-// export default App;
-
-import { React } from "react";
+import { React, useState } from "react";
+import Search from "./components/Search.jsx";
 
 const App = () => {
-  return <div>App</div>;
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return (
+    <main>
+      <div className="pattern" />
+
+      <div className="wrapper">
+        <header>
+          <img src="./hero.png" alt="Hero Banner" />
+
+          <h1>
+            Find <span className="text-gradient">Movies</span> You'll Enjoy
+            Without the Hassle
+          </h1>
+        </header>
+
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
+        <h1 className="text-white">{searchTerm}</h1>
+      </div>
+    </main>
+  );
 };
 
 export default App;
